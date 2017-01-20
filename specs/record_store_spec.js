@@ -10,7 +10,7 @@ describe('RecordStore', function() {
     beforeEach(function() {
         recordStore = new RecordStore('Selectadisc', 'Nottingham');
         testRecord = new Record('Parliament', 'Mothership Connection', 0.99);
-        });
+    });
 
     it('should have a name', function() {
         assert.equal(recordStore.name, 'Selectadisc');
