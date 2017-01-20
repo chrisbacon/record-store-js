@@ -29,7 +29,7 @@ describe('RecordStore', function() {
     });
 
     it('should be able to buy records', function() {
-        recordCollecter.buy(RecordStore, 'Mothership Connection');
+        recordCollecter.buy(recordStore, 'Mothership Connection');
 
         assert.equal(recordStore.size(), 0);
         assert.equal(recordStore.balance, 0.99);
@@ -38,12 +38,10 @@ describe('RecordStore', function() {
     });
 
     it('should be able to sell records', function() {
-        recordCollecter.buy(RecordStore, 'Mothership Connection');
+        recordCollecter.buy(recordStore, 'Mothership Connection');
 
         recordCollecter.sell('Mothership Connection');
-
-        assert.equal(recordStore.size(), 1);
-        assert.equal(recordStore.balance, 0);
+        
         assert.equal(recordCollecter.size(), 0);
         assert.equal(recordCollecter.balance, 0.99);
     });
