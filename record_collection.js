@@ -24,7 +24,7 @@ RecordCollection.prototype = {
 
 		} else {
 			this.contents[record.artist] = {};
-			this.add(record);
+			this.contents[record.artist][record.title] = [record]
 		}
 	},
 
