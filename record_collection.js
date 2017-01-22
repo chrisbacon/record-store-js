@@ -30,9 +30,32 @@ RecordCollection.prototype = {
 
 	get: function(artist, title) {
 		return this.contents[artist][title].pop();
+	},
+
+	getValue: function() {
+		total = 0;
+		for (var artist in this.contents){
+			for (var title in this.contents[artist]) {
+				for (record of this.contents[artist][title]) {
+					total += record.price;
+				}
+			}
+		}
+		return total;
+	},
+
+	getCounts: function() {
+		counts = {};
+		for (var artist in this.contents){
+
+			counts[artist] = {};
+			
+			for (var title in this.contents[artist]) {
+				counts[artist][title] = this.contents[artist][title].length;
+			}
+		}
+		return counts;
 	}
-
-
 }
 
 module.exports = RecordCollection;

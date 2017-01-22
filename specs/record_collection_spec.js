@@ -37,4 +37,24 @@ describe('record collection', function() {
 
 		assert.equal(recordCollection.size(), 0);
 	});
+
+	it('should be able to return an object that contains the counts of each record', function() {
+		recordCollection.add(testRecord);
+		recordCollection.add(testRecord);
+
+		expected = {
+			'Parliament': {
+				'Mothership Connection': 2
+			}
+		}
+
+		assert.deepEqual(expected, recordCollection.getCounts());
+	});
+
+	it('should be able to return the total value of all the records contained', function() {
+		recordCollection.add(testRecord);
+		recordCollection.add(testRecord);
+
+		assert.equal(1.98, recordCollection.getValue());
+	})
 })
